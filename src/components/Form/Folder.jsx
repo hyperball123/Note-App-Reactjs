@@ -74,7 +74,6 @@ const handleCheckBox = (event) => {
           />
         </div>
       ) : (
-        // <NoteCreation finalData={finalData} />
         <NoteCreation finalData={finalData} formData={formData} />
       )}
     </div>
