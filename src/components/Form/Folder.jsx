@@ -62,7 +62,6 @@ const handleCheckBox = (event) => {
       <button className="New-Button" onClick={handleShowForm}>
         NEW - FORM
       </button>
-
       {showForm ? (
         <div className="container">
           <FormCreation
