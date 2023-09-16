@@ -32,17 +32,14 @@ function Folder() {
 const handleCheckBox = (event) => {
   const { name, checked } = event.target;
 
-  // Create a copy of the formData object
   const updatedFormData = { ...formData };
 
-  // Set the property to true if checked, or remove it if unchecked
   if (checked) {
     updatedFormData[name] = true;
   } else {
     delete updatedFormData[name];
   }
 
-  // Update the state with the modified formData
   setFormData(updatedFormData);
 };
 
@@ -51,8 +48,7 @@ const handleCheckBox = (event) => {
     setFormData({
       ...formData,
       male: value === "male",
-      // Set `male` to `true` if "male" is selected, otherwise set `false`.
-      // This way, `formData.male` will be `true` for "Male" and `false` for "Female".
+      
       female: value === "female",
     });
   };
