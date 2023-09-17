@@ -27,7 +27,8 @@ export default function NoteCreation({ finalData }) {
             </li>
             <li>
               <span>Gender: </span>
-              {dataItem.male ? "Male" : "Female"}
+              {console.log(dataItem)}
+              {dataItem.gender}
             </li>
           </ul>
         </div>
