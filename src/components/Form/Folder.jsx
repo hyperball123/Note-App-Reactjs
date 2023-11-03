@@ -24,7 +24,7 @@ function Folder() {
     backend: "",
     infrastructure: "",
     devops: "",
-    gender:""
+    gender: "",
   });
   const [finalData, setFinalData] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -32,22 +32,31 @@ function Folder() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    let errors = [];
 
     if (formData.title === "") {
-      setError(`Title is required`);
-      // event.preventDefault();
-    } else if (formData.description === "") {
-      setError(`Description is required`);
-    } else if (formData.description === "") {
-      setError(`Description is required`);
-    } else if (!isValidMobileFormat(formData.mobile)) {
-      setError(`Mobile no. is required , format : +91 9823202338`);
-    } else if (formData.male === "checked") {
-      setError("Gender is required");
+      errors.push("Title is required");
+    }
+
+    if (formData.description === "") {
+      errors.push("Description is required");
+    }
+
+    if (!isValidMobileFormat(formData.mobile)) {
+      errors.push("Mobile no. is required, format: +91 9823202338");
+    }
+
+    if (formData.gender === "") {
+      errors.push("Gender is required");
+    }
+
+    if (errors.length > 0) {
+      setError(errors.join(", "));
     } else {
       setFinalData((finalData) => [...finalData, formData]);
       setShowForm(false);
       setFormData(inititalState);
+      setError(""); // Clear any previous errors
     }
   };
 
